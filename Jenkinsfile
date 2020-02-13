@@ -7,8 +7,8 @@ pipeline {
     stage('init') {
       steps {sh  "sudo docker build . -t test:v1"}
     }
-    stage('container launch') {
-      steps {sh  "sudo docker  run -d --name nginx1 -p 8082:80  test:v1"}
+    stage('compose up') {
+      steps {sh  "sudo docker-compose up -d"}
     }
   }
 }
