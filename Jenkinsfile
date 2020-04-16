@@ -1,11 +1,8 @@
 pipeline {
-  agent {
-    label 'jenkins-slave'
-  }
+  agent any
   stages {
-     
     stage('init') {
-      steps {sh  "docker build . -t test:v1"}
+      steps {sh  "docker build . -t nginx:v1"}
     }
     stage('compose up') {
       steps {sh  "docker-compose up -d"}
